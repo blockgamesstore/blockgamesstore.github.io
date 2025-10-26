@@ -3,60 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Support Page</title>
+    <title>BlockGames - Simple iOS Games</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        ul {
-            list-style-type: none;
             padding: 0;
+            box-sizing: border-box;
         }
-        ul li {
-            margin: 10px 0;
+
+        body {
+            font-family: 'Ubuntu Mono', monospace;
+            background-color: #0a0a0a;
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        a {
-            color: #0066cc;
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .tagline {
+            font-size: 16px;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        main {
+            flex: 1;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .game-card {
+            background: #1a1a1a;
+            border: 2px solid #333;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s;
+        }
+
+        .game-card:hover {
+            border-color: #555;
+        }
+
+        .game-header {
+            padding: 30px 20px;
+            cursor: pointer;
             text-decoration: none;
+            color: inherit;
+            display: flex;
+            gap: 20px;
+            flex: 1;
         }
-        a:hover {
-            text-decoration: underline;
+
+        .game-header:hover .game-title {
+            color: #fff;
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            border: 2px solid #444;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .game-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .game-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #f5f5f5;
+            transition: color 0.2s;
+        }
+
+        .game-description {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        .game-footer {
+            padding: 20px;
+            background: #fff;
+            color: #000;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.2s;
+        }
+
+        .game-footer:hover {
+            background: #e0e0e0;
+        }
+
+        footer {
+            background: #000;
+            color: #888;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: auto;
+            border-top: 1px solid #222;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+        }
+
+        .footer-email {
+            font-size: 12px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .footer-email a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-email a:hover {
+            color: #888;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>BlockGames Support Page</h1>
-        <p>Welcome to our support page. Select your game below to access its dedicated support resources and FAQs.</p>
+    <header>
+        <h1>BLOCKGAMES</h1>
+        <p class="tagline">simple games. simple fun.</p>
+    </header>
 
-        <h2>Games</h2>
-        <ul>
-            <li><a href="block_chase_support.html">Block Chase</a></li>
+    <main>
+        <div class="games-grid">
+            <div class="game-card">
+                <a href="tic_tac_poof.html" class="game-header">
+                    <img src="tit_tac_poof_80.png" alt="Tic Tac Poof" style="width: 80px; height: 80px;">
+                    <div class="game-info">
+                        <h2 class="game-title">TIC TAC POOF</h2>
+                        <p class="game-description">
+                            A minimalist twist on the classic game. Three marks only. Time ticking. Strategic chaos.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/us/app/tic-tac-poof/id6739744217" class="game-footer">
+                    GET FROM APP STORE →
+                </a>
+            </div>
 
-            <li><a href="tic_tac_poof_support.html">Tic Tac Poof</a></li>
-            <!-- Add more game links here -->
-        </ul>
-        <h2>Privacy Policy</h2>
-        <ul>
-            <li>
-                <a href="privacy_policy.html">Privacy Policy</a>
-            </li>
-            <!-- Add more game links here -->
-        </ul>
-    </div>
+            <div class="game-card">
+                <a href="mirror_snake.html" class="game-header">
+                    <img src="mirror_snake_80.png" alt="Mirror Snake" style="width: 80px; height: 80px;">
+                    <div class="game-info">
+                        <h2 class="game-title">MIRROR SNAKE</h2>
+                        <p class="game-description">
+                            Snake, but reversed. Up means down. Left means right. Double the snakes, double the confusion.
+                        </p>
+                    </div>
+                </a>
+                <a href="https://apps.apple.com/us/app/mirror-snake/id6744073213" class="game-footer">
+                    GET FROM APP STORE →
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="privacy_policy.html">PRIVACY POLICY</a>
+        </div>
+        <div class="footer-email">
+            <a href="mailto:rajivsingh.github@gmail.com">rajivsingh.github@gmail.com</a>
+        </div>
+    </footer>
 </body>
 </html>
